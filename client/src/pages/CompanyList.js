@@ -1,31 +1,17 @@
 import React from 'react'
 
-
 class CompanyList extends React.Component {
-state = {
-    companies: [],
-}
+  state = { company: { Title: "Loading..."} }
 
-    handleSearch = event => {
-            fetch(`/api/v3/company/profile/${event.target.value}`)
-            .then(response => response.json())
-            .then(data => console.log(data))
-    }
 
-    render(){
-        return(
-            <div>
-            <h1>Search for a company</h1>
-            <input 
-                type="Text"
-                placeholder="Company Name"
-                onChange={this.handleSearch}
-            />
-            </div>
-
-        )
-
-    }
+  render(){
+    return(
+      <div>This is the Company Description Page</div>
+    )
+  }
 
 }
+
+
+
 export default CompanyList
