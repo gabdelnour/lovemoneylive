@@ -5,13 +5,16 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require("express")
 const path = require("path")
 const app = express()
+const axios = require('axios')
 
 // JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
-app.get('/api/demo', (request, response) => {
-  response.json({
-    message: "Hello from server.js"
-  })
+app.get('/api/v3/company/profile/:ticker', (request, response) => {
+  const {ticker} = request.params
+  axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${ticker}`)
+    .then(financialResponse => response.json(financialResponse.data))
 })
+
+
 // END DEMO
 
 if (process.env.NODE_ENV === 'production') {
