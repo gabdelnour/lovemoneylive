@@ -14,6 +14,13 @@ app.get('/api/v3/company/profile/:ticker', (request, response) => {
     .then(financialResponse => response.json(financialResponse.data))
 })
 
+app.get('/api/v3/company/stock/list', (_, response) => {
+  axios.get(`https://financialmodelingprep.com/api/v3/company/stock/list/`)
+    .then(financialResponse => response.json(financialResponse.data))
+})
+
+
+
 
 // END DEMO
 

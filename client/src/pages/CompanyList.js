@@ -1,13 +1,25 @@
 import React from 'react'
 
 class CompanyList extends React.Component {
-  state = { company: { Title: "Loading..."} }
+  state = { 
+    stockCompanyList : []
+  }
 
+  handleFilter = () => {
+    fetch(`/api/v3/company/stock/list`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
 
   render(){
     return(
-      <div>This is the Company Description Page</div>
+      <div>
+      <h1>Filter the Company List</h1>
+      </div>    
     )
+  }
+  componentDidMount(){
+    this.handleFilter()
   }
 
 }
