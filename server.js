@@ -5,13 +5,63 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require("express")
 const path = require("path")
 const app = express()
+const axios = require('axios')
 
 // JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
-app.get('/api/demo', (request, response) => {
-  response.json({
-    message: "Hello from server.js"
+// app.get('/api/v3/company/profile/:ticker', (request, response) => {
+//   const {ticker} = request.params
+//   axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${ticker}`)
+//     .then(financialResponse => response.json(financialResponse.data))
+// })
+
+// app.get('/api/v3/financials/balance-sheet-statement/:ticker', (request, response) => {
+//   const {ticker} = request.params
+//   axios.get(`https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/${ticker}`)
+//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
+// })
+
+// app.get('/api/v3/financials/income-statement/:ticker', (request, response) => {
+//   const {ticker} = request.params
+//   axios.get(`https://financialmodelingprep.com/api/v3/financials/income-statement/${ticker}`)
+//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
+// })
+
+// app.get('/api/v3/enterprise-value/:ticker', (request, response) => {
+//   const {ticker} = request.params
+//   axios.get(`https://financialmodelingprep.com/api/v3/enterprise-value/${ticker}`)
+//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
+// })
+
+app.get('/companyBundle/:ticker', async (request, response) => {
+  const { ticker } = request.params;
+  const requests = [
+    axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${ticker}`),
+    axios.get(`https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/${ticker}`),
+    axios.get(`https://financialmodelingprep.com/api/v3/financials/income-statement/${ticker}`),
+    axios.get(`https://financialmodelingprep.com/api/v3/enterprise-value/${ticker}`),
+  ]
+  const [
+    { data: companyProfileData },
+    { data: balanceSheetData },
+    { data: incomeStatementData },
+    { data: enterpriseValueData },
+  ] = await Promise.all(requests);
+  response.send({
+    companyProfile: companyProfileData,
+    balanceSheet: balanceSheetData,
+    incomeStatement: incomeStatementData,
+    enterpriseValue: enterpriseValueData,
   })
 })
+
+
+
+app.get('/api/v3/company/stock/list', async (_, response) => {
+  const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/company/stock/list/`)
+  response.send(data) 
+})
+
+
 // END DEMO
 
 if (process.env.NODE_ENV === 'production') {
