@@ -1,5 +1,63 @@
-/* JUST FOR DEMO PURPORSES, REPLACE WITH YOUR OWN CODE */
+ 
+  .home {
+    display: grid;
+    grid-row: auto ;
+    text-align: center;
+    background-image: url(https://i2.wp.com/www.datadriveninvestor.com/wp-content/uploads/2019/02/Depositphotos_3505359_l-2015.jpg?fit=2000%2C1290&ssl=1);
+    height: 93vh;
+    width: 100hw;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 
 
+.wynput {
+    height:45px;
+    width: 500px;
+    margin: auto;
+    position: center;
+    border: solid 2px #32CAF7;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 50px;
+    text-align: center;
+    opacity: 0.9;
+    transition: transform .5s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wynput:hover {
+    opacity: 1.0;
+    transform: scale(1.25);
+}
 
-/* END DEMO */
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    
+  }
+  
+  nav ul li {
+    padding: 2rem 0.5rem;
+    text-size-adjust: 50px;
+    
+  }
+  
+  nav {
+    background-color: #235986;
+    height: 10vh;
+  }
+  
+  nav a {
+    color: yellow;
+    text-decoration: none;
+    padding: 0px 50px 0px 50px;
+
+  }
+  
+  nav a:hover {
+    color: yellowgreen;
+  }
