@@ -15,7 +15,7 @@ handleInputChange = event => this.setState({ ticker:event.target.value })
 
 getHome = async event => {
     event.preventDefault();
-    const { data } = await axios.get(`/companyBundle/${this.state.ticker}`)
+    const { data } = await axios.get(`/api/companyBundle/${this.state.ticker}`)
     const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = data;
     this.setState({ companyProfile, balanceSheet, incomeStatement, enterpriseValue})
 }
