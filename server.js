@@ -52,6 +52,10 @@ app.get('/api/v3/company/stock/list', async (_, response) => {
   response.send(data) 
 })
 
+// app.get('/api/v3/company/stock/list', (_, response) => {
+//   axios.get(`https://financialmodelingprep.com/api/v3/company/stock/list`)
+//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
+// })
 
 // END DEMO
 

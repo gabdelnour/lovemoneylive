@@ -1,7 +1,9 @@
 import React from 'react';
 
-const CompanyName = props => (
-    <p>{props.companyName}</p>
+const CompanyProfileBlock = props => (
+        <div>
+            <p>{props.companyName}</p>
+        </div>
 )
 
-export default CompanyName;
+export default CompanyProfileBlock;
