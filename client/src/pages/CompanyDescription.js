@@ -1,11 +1,10 @@
 import React from 'react'
 import axios from 'axios';
-import CompanyName from '../components/CompanyName';
+import CompanyProfileBlock from '../components/CompanyName';
 
 
 class CompanyDescription extends React.Component {
 state = {
-    companies: [],
     ticker: '',
     companyProfile: {},
     balanceSheet: {},
@@ -17,7 +16,7 @@ handleInputChange = event => this.setState({ ticker: event.target.value })
 
 getCompanyProfile = async event => {
     event.preventDefault();
-    const { data } = await axios.get(`/companyBundle/${this.state.ticker}`)
+    const { data } = await axios.get(`/api/companyBundle/${this.state.ticker}`)
     const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = data;
     this.setState({ companyProfile, balanceSheet, incomeStatement, enterpriseValue })
 }
@@ -40,8 +39,7 @@ getCompanyProfile = async event => {
                     />
                 </form>
                 <div>
-                    <h1>Company Name</h1>
-                    {companyProfile.profile && <CompanyName companyName={companyProfile.profile.companyName} />}
+                    {companyProfile.profile && <CompanyProfileBlock companyName={companyProfile.profile.companyName} />}
                 </div>
             </div>
 
