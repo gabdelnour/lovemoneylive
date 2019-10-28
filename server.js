@@ -32,7 +32,7 @@ const axios = require('axios')
 //     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
 // })
 
-app.get('/companyBundle/:ticker', async (request, response) => {
+app.get('/api/companyBundle/:ticker', async (request, response) => {
   const { ticker } = request.params;
   const requests = [
     axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${ticker}`),
@@ -40,18 +40,9 @@ app.get('/companyBundle/:ticker', async (request, response) => {
     axios.get(`https://financialmodelingprep.com/api/v3/financials/income-statement/${ticker}`),
     axios.get(`https://financialmodelingprep.com/api/v3/enterprise-value/${ticker}`),
   ]
-  const [
-    { data: companyProfileData },
-    { data: balanceSheetData },
-    { data: incomeStatementData },
-    { data: enterpriseValueData },
-  ] = await Promise.all(requests);
-  response.send({
-    companyProfile: companyProfileData,
-    balanceSheet: balanceSheetData,
-    incomeStatement: incomeStatementData,
-    enterpriseValue: enterpriseValueData,
-  })
+  const [companyProfile, balanceSheet, incomeStatement, enterpriseValue] =
+          (await Promise.all(requests)).map(response => response.data)
+  response.json({ companyProfile, balanceSheet, incomeStatement, enterpriseValue})
 })
 
 
