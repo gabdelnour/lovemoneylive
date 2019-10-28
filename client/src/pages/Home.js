@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import Nico from '../components/Nico'
 
 class Homepage extends React.Component {
   state = {
@@ -27,7 +26,7 @@ render(){
         <div>
           <div className="home">
             <h1>Welcome to L$VELIFE</h1>
-            <img src=".\components\love$life_logo_final.png" alt="The L$VELIFE team Logo"/>
+            <img src="/logo.png" alt="The L$VELIFE team Logo"/>
           </div>
           <div>
             <h1>Enter your symbol below to get started.</h1>
@@ -37,7 +36,10 @@ render(){
               </form>
           </div>
           <div>
-             <img alt="CompanyLogo" src={companyProfile.profile && <Nico nico={companyProfile.profile.image}/>}/>
+             {
+               companyProfile.profile && <img src={companyProfile.profile.image} alt={`${companyProfile.profile.name} logo img`}/>
+              
+             }
           </div>
         </div>
           )
