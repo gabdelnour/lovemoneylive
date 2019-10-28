@@ -46,7 +46,6 @@ getCompanyProfile = async event => {
             </div>
 
         )
-
     }
 
 }
