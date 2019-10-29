@@ -4,14 +4,14 @@ const CompanyMainStats = props => (
     <div className="companyMainStats">
         <div id="TOP">
             <div id="companyLogo">
-                <img src={props.companyLogo} alt="company's logo"/>
+                <img src={props.image} alt="company's logo"/>
             </div>
             <div id="topRowText">
                 <div>
                     <h1 id="companyName">{props.companyName}</h1>
                 </div>
                 <div>
-                    <h5 id="companySymbol">{props.companySymbol}</h5>
+                    <h5 id="companySymbol">{props.symbol}</h5>
                     <h5 id="exchange">{props.exchange}</h5>
                 </div>
             </div>

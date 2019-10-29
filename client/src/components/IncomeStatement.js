@@ -11,29 +11,41 @@ const IncomeStatement = props => (
                 </tr>
             </thead>
             <tbody>
+                {
+                    // Object.keys(props).map(prop => (
+                    //     <tr key={prop}>
+                    //         <td className="financialKeys">
+                    //             {prop}:
+                    //         </td>
+                    //         <td className="companyValues">
+                    //             {props[prop]}
+                    //         </td>
+                    //     </tr>
+                    // ))
+                }
                 <tr>
-                    <td className="financialKeys">EPS: </td><td className="companyValues">{props.eps}</td>
+                    <td className="financialKeys">EPS: </td><td className="companyValues">{props.EPS}</td>
                 </tr>
                 <tr>
-                    <td className="financialKeys">EPS diluted: </td><td className="companyValues">{props.epsDiluted}</td>
+                    <td className="financialKeys">EPS diluted: </td><td className="companyValues">{props['EPS Diluted']}</td>
                 </tr>
                 <tr>
-                    <td className="financialKeys">Net Income: </td><td className="companyValues">{props.netIncome}</td>
+                    <td className="financialKeys">Net Income: </td><td className="companyValues">{props['Net Income']}</td>
                 </tr>
                 <tr>
                     <td className="financialKeys">EBITDA </td><td className="companyValues">{props.EBITDA}</td>
                 </tr>
                 <tr>
-                    <td className="financialKeys">Gross Profit: </td><td className="companyValues">{props.grossProfit}</td>
+                    <td className="financialKeys">Gross Profit: </td><td className="companyValues">{props['Gross Profit']}</td>
                 </tr>
                 <tr>
-                    <td className="financialKeys">Profit Margin </td><td className="companyValues">{props.profitMargin}</td>
+                    <td className="financialKeys">Profit Margin </td><td className="companyValues">{props['Profit Margin']}</td>
                 </tr>
                 <tr>
-                    <td className="financialKeys">Revenue: </td><td className="companyValues">{props.revenue}</td>
+                    <td className="financialKeys">Revenue: </td><td className="companyValues">{props.Revenue}</td>
                 </tr>
                 <tr>
-                    <td className="financialKeys">Revenue Growth: </td><td className="companyValues">{props.revenueGrowth}</td>
+                    <td className="financialKeys">Revenue Growth: </td><td className="companyValues">{props['Revenue Growth']}</td>
                 </tr>
             </tbody>
         </table>

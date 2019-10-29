@@ -11,7 +11,7 @@ state = {
     ticker: '',
     companyProfile: {},
     balanceSheet: {},
-    incomeStatement: {}, 
+    incomeStatement: {},
     enterpriseValue: {},
     incomeStatementKeys: []
 }
@@ -30,8 +30,7 @@ getCompanyProfile = async event => {
     render(){
         const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = this.state
         console.log(this.state)
-        
-
+        const financials = incomeStatement.financials ? incomeStatement.financials[0] : {}
         return(
             <div>
                 <h1>Search for a company</h1>
@@ -50,43 +49,21 @@ getCompanyProfile = async event => {
                         {
                             companyProfile.profile &&
                             <CompanyMainStats
-                                companyLogo={companyProfile.profile.image}
-                                companyName={companyProfile.profile.companyName}
-                                exchange={companyProfile.profile.exchange}
-                                companySymbol={companyProfile.profile.symbol}
-                                changes={companyProfile.profile.changes}
-                                changesPercentage={companyProfile.profile.changesPercentage}
-                                mktCap={companyProfile.profile.mktCap}
-                                eps={incomeStatement.financials[0].EPS}
-                                price={companyProfile.profile.price}
+                                { ...companyProfile.profile }
+                                eps={ financials.EPS }
                             />
                         }
                 </div>
                 <div>
                     {
-                        companyProfile.profile && 
-                        <CompanyProfileBlock 
-                            companyCEO={companyProfile.profile.ceo}
-                            industry={companyProfile.profile.industry}
-                            sector={companyProfile.profile.sector}
-                            description={companyProfile.profile.description}
-                        />
+                        companyProfile.profile &&
+                        <CompanyProfileBlock { ...companyProfile.profile } />
                     }
                 </div>
                 <div>
                     {
                         companyProfile.profile &&
-                        <IncomeStatement
-                            eps={incomeStatement.financials[0].EPS}
-                            epsDiluted={incomeStatement.financials[0]["EPS Diluted"]}
-                            netIncome={incomeStatement.financials[0]["Net Income"]}
-                            EBITDA={incomeStatement.financials[0].EBITDA}
-                            grossProfit={incomeStatement.financials[0]["Gross Profit"]}
-                            profitMargin={incomeStatement.financials[0]["Profit Margin"]}
-                            revenue={incomeStatement.financials[0].Revenue}
-                            revenueGrowth={incomeStatement.financials[0]["Revenue Growth"]}
-
-                        />
+                        <IncomeStatement {...financials} />
                     }
                 </div>
                 <div>
