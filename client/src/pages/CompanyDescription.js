@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import CompanyProfileBlock from '../components/CompanyName';
+import IncomeStatement from '../components/IncomeStatement'
 
 
 class CompanyDescription extends React.Component {
@@ -19,11 +20,12 @@ getCompanyProfile = async event => {
     const { data } = await axios.get(`/api/companyBundle/${this.state.ticker}`)
     const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = data;
     this.setState({ companyProfile, balanceSheet, incomeStatement, enterpriseValue })
+    console.log(this.state.incomeStatement.financials[0].EPS);
 }
 
     render(){
-        const { companyProfile } = this.state
-        console.log(this.state);
+        const { companyProfile, incomeStatement } = this.state
+
         return(
             <div>
                 <h1>Search for a company</h1>
@@ -39,7 +41,32 @@ getCompanyProfile = async event => {
                     />
                 </form>
                 <div>
-                    {companyProfile.profile && <CompanyProfileBlock companyName={companyProfile.profile.companyName} />}
+
+                    {companyProfile.profile && 
+                        <CompanyProfileBlock 
+                            companyName={companyProfile.profile.companyName} 
+                            companyCEO={companyProfile.profile.ceo}
+                            industry={companyProfile.profile.industry}
+                            sector={companyProfile.profile.sector}
+                            description={companyProfile.profile.description}
+                        />
+                    }
+                </div>
+                <div>
+                    {
+                        companyProfile.profile &&
+                        <IncomeStatement
+                            eps={incomeStatement.financials[0].EPS}
+                            epsDiluted={incomeStatement.financials[0]["EPS Diluted"]}
+                            netIncome={incomeStatement.financials[0]["Net Income"]}
+                            EBITDA={incomeStatement.financials[0].EBITDA}
+                            grossProfit={incomeStatement.financials[0]["Gross Profit"]}
+                            profitMargin={incomeStatement.financials[0]["Profit Margin"]}
+                            revenue={incomeStatement.financials[0].Revenue}
+                            revenueGrowth={incomeStatement.financials[0]["Revenue Growth"]}
+
+                        />
+                    }
                 </div>
             </div>
 
