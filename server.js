@@ -47,9 +47,20 @@ app.get('/api/companyBundle/:ticker', async (request, response) => {
 
 
 
-app.get('/api/v3/company/stock/list', async (_, response) => {
+app.get('/api/stocklist', async (_, response) => {
   const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/company/stock/list/`)
   response.send(data) 
+})
+
+app.get('/api/gainers', async (_, response) => {
+  const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/stock/gainers`)
+  response.send(data.mostGainerStock) 
+})
+
+
+app.get('/api/losers', async (_, response) => {
+  const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/stock/losers`)
+  response.send(data.mostLoserStock) 
 })
 
 // app.get('/api/v3/company/stock/list', (_, response) => {
