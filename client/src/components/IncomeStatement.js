@@ -2,40 +2,40 @@ import React from 'react';
 
 const IncomeStatement = props => (
     <div>
-        <h1>IncomeStatement</h1>
+        <h1 className="tableTitle">IncomeStatement</h1>
         <hr/>
-        <table>
+        <table className="incomeStatement">
             <thead>
                 <tr>
-                    <th>Financial Data</th><th>Company</th>
+                    <th className="financialKeys">Financial Data</th><th className="companyValues">Company</th>
                 </tr>
             </thead>
-            <body>
+            <tbody>
                 <tr>
-                    <td>EPS: </td><td>{props.eps}</td>
+                    <td className="financialKeys">EPS: </td><td className="companyValues">{props.eps}</td>
                 </tr>
                 <tr>
-                    <td>EPS diluted: </td><td>{props.epsDiluted}</td>
+                    <td className="financialKeys">EPS diluted: </td><td className="companyValues">{props.epsDiluted}</td>
                 </tr>
                 <tr>
-                    <td>Net Income: </td><td>{props.netIncome}</td>
+                    <td className="financialKeys">Net Income: </td><td className="companyValues">{props.netIncome}</td>
                 </tr>
                 <tr>
-                    <td>EBITDA </td><td>{props.EBITDA}</td>
+                    <td className="financialKeys">EBITDA </td><td className="companyValues">{props.EBITDA}</td>
                 </tr>
                 <tr>
-                    <td>Gross Profit: </td><td>{props.grossProfit}</td>
+                    <td className="financialKeys">Gross Profit: </td><td className="companyValues">{props.grossProfit}</td>
                 </tr>
                 <tr>
-                    <td>Profit Margin </td><td>{props.profitMargin}</td>
+                    <td className="financialKeys">Profit Margin </td><td className="companyValues">{props.profitMargin}</td>
                 </tr>
                 <tr>
-                    <td>Revenue: </td><td>{props.revenue}</td>
+                    <td className="financialKeys">Revenue: </td><td className="companyValues">{props.revenue}</td>
                 </tr>
                 <tr>
-                    <td>Revenue Growth: </td><td>{props.revenueGrowth}</td>
+                    <td className="financialKeys">Revenue Growth: </td><td className="companyValues">{props.revenueGrowth}</td>
                 </tr>
-            </body>
+            </tbody>
         </table>
     </div>
 )

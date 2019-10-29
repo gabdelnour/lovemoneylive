@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import CompanyProfileBlock from '../components/CompanyName';
 import IncomeStatement from '../components/IncomeStatement'
+import EnterpriseValue from '../components/EnterpriseValue'
 
 
 class CompanyDescription extends React.Component {
@@ -11,7 +12,10 @@ state = {
     balanceSheet: {},
     incomeStatement: {}, 
     enterpriseValue: {},
+    incomeStatementKeys: []
 }
+
+
 
 handleInputChange = event => this.setState({ ticker: event.target.value })
 
@@ -19,12 +23,13 @@ getCompanyProfile = async event => {
     event.preventDefault();
     const { data } = await axios.get(`/api/companyBundle/${this.state.ticker}`)
     const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = data;
-    this.setState({ companyProfile, balanceSheet, incomeStatement, enterpriseValue })
-    console.log(this.state.incomeStatement.financials[0].EPS);
+    this.setState({ companyProfile, balanceSheet, incomeStatement, enterpriseValue})
 }
 
     render(){
-        const { companyProfile, incomeStatement } = this.state
+        const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = this.state
+        console.log(this.state)
+        
 
         return(
             <div>
@@ -41,7 +46,6 @@ getCompanyProfile = async event => {
                     />
                 </form>
                 <div>
-
                     {companyProfile.profile && 
                         <CompanyProfileBlock 
                             companyName={companyProfile.profile.companyName} 
@@ -67,6 +71,23 @@ getCompanyProfile = async event => {
 
                         />
                     }
+                </div>
+                <div>
+                    {
+                        companyProfile.profile &&
+                        <EnterpriseValue   
+                            date={enterpriseValue.enterpriseValues[0].date}
+                            stockPrice={enterpriseValue.enterpriseValues[0]["Stock Price"]}
+                            numberOfShares={enterpriseValue.enterpriseValues[0]["Number of Shares"]}
+                            marketCapitalization={enterpriseValue.enterpriseValues[0]["Market Capitalization"]}
+                            cashCashEquivalents={enterpriseValue.enterpriseValues[0]["- Cash & Cash Equivalents"]}
+                            totalDebt={enterpriseValue.enterpriseValues[0]["+ Total Debt"]}
+                            enterpriseValue={enterpriseValue.enterpriseValues[0]["Enterprise Value"]}
+                        />
+                    }
+                </div>
+                <div>
+                    
                 </div>
             </div>
 

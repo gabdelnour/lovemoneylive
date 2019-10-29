@@ -47,7 +47,7 @@ app.get('/api/companyBundle/:ticker', async (request, response) => {
 
 
 
-app.get('/api/v3/company/stock/list', async (_, response) => {
+app.get('/api/stock/list', async (_, response) => {
   const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/company/stock/list/`)
   response.send(data) 
 })
