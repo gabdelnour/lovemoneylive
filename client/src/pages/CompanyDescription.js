@@ -3,6 +3,7 @@ import axios from 'axios';
 import CompanyProfileBlock from '../components/CompanyName';
 import IncomeStatement from '../components/IncomeStatement'
 import EnterpriseValue from '../components/EnterpriseValue'
+import CompanyMainStats from '../components/CompanyMainStats'
 
 
 class CompanyDescription extends React.Component {
@@ -46,9 +47,25 @@ getCompanyProfile = async event => {
                     />
                 </form>
                 <div>
-                    {companyProfile.profile && 
+                        {
+                            companyProfile.profile &&
+                            <CompanyMainStats
+                                companyLogo={companyProfile.profile.image}
+                                companyName={companyProfile.profile.companyName}
+                                exchange={companyProfile.profile.exchange}
+                                companySymbol={companyProfile.profile.symbol}
+                                changes={companyProfile.profile.changes}
+                                changesPercentage={companyProfile.profile.changesPercentage}
+                                mktCap={companyProfile.profile.mktCap}
+                                eps={incomeStatement.financials[0].EPS}
+                                price={companyProfile.profile.price}
+                            />
+                        }
+                </div>
+                <div>
+                    {
+                        companyProfile.profile && 
                         <CompanyProfileBlock 
-                            companyName={companyProfile.profile.companyName} 
                             companyCEO={companyProfile.profile.ceo}
                             industry={companyProfile.profile.industry}
                             sector={companyProfile.profile.sector}
@@ -87,7 +104,7 @@ getCompanyProfile = async event => {
                     }
                 </div>
                 <div>
-                    
+
                 </div>
             </div>
 
