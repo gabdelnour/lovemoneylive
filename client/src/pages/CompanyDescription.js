@@ -1,10 +1,12 @@
 import React from 'react'
-import axios from 'axios';
-import CompanyProfileBlock from '../components/CompanyName';
+import axios from 'axios'
+import CompanyProfileBlock from '../components/CompanyName'
 import IncomeStatement from '../components/IncomeStatement'
 import EnterpriseValue from '../components/EnterpriseValue'
 import CompanyMainStats from '../components/CompanyMainStats'
-
+import WelcomeToCompanyDescription from '../components/WelcomeToCompanyDescription';
+import SearchBar from '../components/SearchBars'
+import '../cssFiles/CompanyDescription.css'
 
 class CompanyDescription extends React.Component {
 state = {
@@ -13,7 +15,8 @@ state = {
     balanceSheet: {},
     incomeStatement: {},
     enterpriseValue: {},
-    incomeStatementKeys: []
+    incomeStatementKeys: [],
+    loading: true
 }
 
 
@@ -24,27 +27,32 @@ getCompanyProfile = async event => {
     event.preventDefault();
     const { data } = await axios.get(`/api/companyBundle/${this.state.ticker}`)
     const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = data;
-    this.setState({ companyProfile, balanceSheet, incomeStatement, enterpriseValue})
+    this.setState({ companyProfile, balanceSheet, incomeStatement, enterpriseValue, loading: false})
 }
 
     render(){
-        const { companyProfile, balanceSheet, incomeStatement, enterpriseValue } = this.state
+        const { companyProfile, balanceSheet, incomeStatement, enterpriseValue, loading } = this.state
         console.log(this.state)
         const financials = incomeStatement.financials ? incomeStatement.financials[0] : {}
         return(
-            <div>
-                <h1>Search for a company</h1>
-                <form onSubmit={this.getCompanyProfile}>
-                    <input 
-                        type="Text"
-                        placeholder="Company Name"
-                        onChange={this.handleInputChange}
-                    />
-                    <input 
-                        type="submit"
-                        value="Get Company Bundle"
-                    />
-                </form>
+            <>
+            <div className="container">
+                <div className="leftMargin"></div>
+                <div className="navBarWrapper">
+                    {
+                        <SearchBar
+                            handleInputChange={this.handleInputChange}
+                            getCompanyProfile={this.getCompanyProfile}
+
+                        />
+                    }
+                </div>
+                <div ClassName="welcome Message">
+                    {
+                        loading &&
+                        <WelcomeToCompanyDescription/>
+                    }
+                </div>
                 <div>
                         {
                             companyProfile.profile &&
@@ -69,7 +77,7 @@ getCompanyProfile = async event => {
                 <div>
                     {
                         companyProfile.profile &&
-                        <EnterpriseValue   
+                        <EnterpriseValue 
                             date={enterpriseValue.enterpriseValues[0].date}
                             stockPrice={enterpriseValue.enterpriseValues[0]["Stock Price"]}
                             numberOfShares={enterpriseValue.enterpriseValues[0]["Number of Shares"]}
@@ -84,7 +92,8 @@ getCompanyProfile = async event => {
 
                 </div>
             </div>
-
+        <div className="rightMargin"></div>
+        </>
         )
     }
 

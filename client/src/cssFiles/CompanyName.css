@@ -1,0 +1,14 @@
+.companyMainStat{
+    display: flex;
+    flex: space-between;
+}
+
+.marginLeft{
+    width: 50px;
+    height: inherit;
+}
+
+.marginRight{
+    width: 50px;
+    hieght: inherit
+}
