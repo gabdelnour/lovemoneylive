@@ -7,6 +7,7 @@ import CompanyMainStats from '../components/CompanyMainStats'
 import WelcomeToCompanyDescription from '../components/WelcomeToCompanyDescription';
 import SearchBar from '../components/SearchBars'
 import '../cssFiles/CompanyDescription.css'
+import BalanceSheet from '../components/BalanceSheet'
 
 class CompanyDescription extends React.Component {
 state = {
@@ -34,62 +35,77 @@ getCompanyProfile = async event => {
         const { companyProfile, balanceSheet, incomeStatement, enterpriseValue, loading } = this.state
         console.log(this.state)
         const financials = incomeStatement.financials ? incomeStatement.financials[0] : {}
+        const financialsBS = balanceSheet.financials ? balanceSheet.financials[0] :{}
+
         return(
             <>
             <div className="container">
                 <div className="leftMargin"></div>
-                <div className="navBarWrapper">
-                    {
-                        <SearchBar
-                            handleInputChange={this.handleInputChange}
-                            getCompanyProfile={this.getCompanyProfile}
-
-                        />
-                    }
-                </div>
-                <div ClassName="welcome Message">
-                    {
-                        loading &&
-                        <WelcomeToCompanyDescription/>
-                    }
-                </div>
                 <div>
+                    <div className="innerWrapper">
+                        <div className="navBarWrapper">
+                            {
+                                <SearchBar
+                                    handleInputChange={this.handleInputChange}
+                                    getCompanyProfile={this.getCompanyProfile}
+
+                                />
+                            }
+                        </div>
+                        <div ClassName="welcome Message">
+                            {
+                                loading &&
+                                <WelcomeToCompanyDescription/>
+                            }
+                        </div>
+                    </div>
+                        <div>
                         {
                             companyProfile.profile &&
-                            <CompanyMainStats
+                                    <CompanyMainStats
                                 { ...companyProfile.profile }
                                 eps={ financials.EPS }
                             />
-                        }
-                </div>
-                <div>
-                    {
-                        companyProfile.profile &&
-                        <CompanyProfileBlock { ...companyProfile.profile } />
-                    }
-                </div>
-                <div>
-                    {
-                        companyProfile.profile &&
-                        <IncomeStatement {...financials} />
-                    }
-                </div>
-                <div>
-                    {
-                        companyProfile.profile &&
-                        <EnterpriseValue 
-                            date={enterpriseValue.enterpriseValues[0].date}
-                            stockPrice={enterpriseValue.enterpriseValues[0]["Stock Price"]}
-                            numberOfShares={enterpriseValue.enterpriseValues[0]["Number of Shares"]}
-                            marketCapitalization={enterpriseValue.enterpriseValues[0]["Market Capitalization"]}
-                            cashCashEquivalents={enterpriseValue.enterpriseValues[0]["- Cash & Cash Equivalents"]}
-                            totalDebt={enterpriseValue.enterpriseValues[0]["+ Total Debt"]}
-                            enterpriseValue={enterpriseValue.enterpriseValues[0]["Enterprise Value"]}
-                        />
-                    }
-                </div>
-                <div>
-
+                            }
+                        </div>
+                        <div className="tableWrapper">
+                            <div>
+                                <div className="tableData">
+                                    {
+                                        companyProfile.profile &&
+                                        <CompanyProfileBlock { ...companyProfile.profile } />
+                                    }
+                                </div>
+                                <div>
+                                    {
+                                        companyProfile.profile &&
+                                        <IncomeStatement {...financials} />
+                                    }
+                                </div>
+                                <div className="tableData">
+                                    {
+                                        companyProfile.profile &&
+                                        <EnterpriseValue 
+                                            date={enterpriseValue.enterpriseValues[0].date}
+                                            stockPrice={enterpriseValue.enterpriseValues[0]["Stock Price"]}
+                                            numberOfShares={enterpriseValue.enterpriseValues[0]["Number of Shares"]}
+                                            marketCapitalization={enterpriseValue.enterpriseValues[0]["Market Capitalization"]}
+                                            cashCashEquivalents={enterpriseValue.enterpriseValues[0]["- Cash & Cash Equivalents"]}
+                                            totalDebt={enterpriseValue.enterpriseValues[0]["+ Total Debt"]}
+                                            enterpriseValue={enterpriseValue.enterpriseValues[0]["Enterprise Value"]}
+                                        />
+                                    }
+                                </div>
+                                    <div className="tableData">
+                                        {
+                                            companyProfile.profile &&
+                                            <BalanceSheet {...financialsBS} />
+                                        }
+                                    </div>
+                                <div>
+                            </div>        
+                        </div>
+                    </div>
                 </div>
             </div>
         <div className="rightMargin"></div>

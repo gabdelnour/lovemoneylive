@@ -1,7 +1,30 @@
 
 .container{
     position: absolute;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ProfileWrapper{
+}
+
+.row{
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Noto Sans HK', sans-serif;
+    align-items: flex-start;
+}
+
+.profileData{
+    font-size: 15px;
+    width: 160px;
+}
+
+.companyProfileData{
+    font-size: 1rem;
+    color: gray
 }
 
 .navBarWrapper{
@@ -59,13 +82,42 @@ h3{
     font-family: 'Noto Sans HK', sans-serif;
     color: #5bbc64;
     font-size: 3rem;
-    padding: 10px
+    padding: 10px;
+    width: 500px;
+}
+
+
+#message{
+    font-size: 2rem;
+    font-family: 'Noto Sans HK', sans-serif;
+    color: gray;
+    height: 60vh;
+    width: 50vw
 }
 
 .leftMargin{
-    width: 10%;
+    height: 100vh;
+    width: 5vh;
+    border-right: 1px #aad4ae;
 }
 
-.rightMarging{
-    width: 10%
+.rightMargin{
+    height: 100vh;
+    width: 5vh;
+    border-left: 1px #aad4ae;
+}
+
+.innerWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90vh;
+    
+}
+
+.tableWrapper{
+    display: grid;
+    align-items: center;
+
+
 }

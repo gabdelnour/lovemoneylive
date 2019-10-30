@@ -4,16 +4,49 @@ import '../cssFiles/CompanyName.css'
 
 const CompanyProfileBlock = props => (
         <div className="ProfileWrapper">
-            <div className="marginLeft">
-                </div>
                 <div>
                     <h1>Company Profile</h1>
                     <hr/>
-                    <h2>Company name: {props.companyName}</h2>
-                    <h2>CEO: {props.ceo}</h2>
-                    <h2>Company Industry: {props.industry}</h2>
-                    <h2>Industry Sector: {props.sector}</h2>
-                    <h3>Company Description: {props.description}</h3>
+                    <div className="row">
+                        <div className="profileData">
+                            <h2>Company: </h2>
+                        </div>
+                        <div className="companyProfileData">
+                            <h2>{props.companyName}</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="profileData">
+                            <h2>CEO: </h2>
+                        </div>
+                        <div className="companyProfileData">
+                            <h2>{props.ceo}</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="profileData">
+                            <h2>Industry: </h2>
+                        </div>
+                        <div className="companyProfileData">
+                            <h2>{props.industry}</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="profileData">
+                            <h2>Sector: </h2>
+                        </div>
+                        <div className="companyProfileData">
+                            <h2>{props.sector}</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="profileData">
+                            <h2>Description: </h2>
+                        </div>
+                        <div className="companyProfileData">
+                            <h2>{props.description}</h2>
+                        </div>
+                    </div>
                 </div>
                 <div className="marginRight">
             </div>

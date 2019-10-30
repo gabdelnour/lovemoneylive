@@ -1,13 +1,14 @@
 import React from 'react'
 
-const EnterpriseValue = props => (
+
+const BalanceSheet = props => (
     <div>
-      <h1 className="tableTitle">Balance Sheet</h1>
-         <hr/>
+        <h1 className="tableTitle">Balance Sheet</h1>
+        <hr/>
         <table className="balanceSheet">
             <thead>
                 <tr>
-                    <th className="financialKeys">Financial Values: </th><th className="companyValues">Company</th>
+                    <th className="financialKeys">Financial Data</th><th ClassName="companyValues">Company</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,4 +29,4 @@ const EnterpriseValue = props => (
     </div>
 )
 
-export default EnterpriseValue
+export default BalanceSheet
