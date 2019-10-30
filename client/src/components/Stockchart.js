@@ -1,5 +1,5 @@
 import React from 'react'
-import Plot from 'react-plotly.js'
+import Plot from 'react-plotly.js' // apparently we have to explicitly reference this including the extension...?
 import '../HomeCSS.css'
 
 class Stockchart extends React.Component {
@@ -15,15 +15,19 @@ class Stockchart extends React.Component {
         this.getChartItems()
     }
 
-    getChartItems() {
-        const timeframe = this
-        console.log(timeframe )
-        let ticker = 'AAPL'
+    componentDidUpdate(prevProps){
+        if(prevProps.ticker !== this.props.ticker){
+            this.getChartItems()
+        }
+    }
+
+    getChartItems = () => {
+        let ticker = this.props.ticker
         let ChartGet = `https://financialmodelingprep.com/api/v3/historical-price-full/${ticker}`
         let timelineFunction = []
         let approxPriceFunction = []
 
-    fetch(ChartGet) 
+    fetch(ChartGet)
         .then(
             function(response) {
                 return response.json()
@@ -34,7 +38,7 @@ class Stockchart extends React.Component {
              historical.forEach(day => {
                 timelineFunction.push(day.date)
                 approxPriceFunction.push(day.close)  
-                timeframe.setState({timeline: timelineFunction, approxPrice: approxPriceFunction})
+                this.setState({timeline: timelineFunction, approxPrice: approxPriceFunction})
             })
         }
         )
@@ -52,7 +56,7 @@ class Stockchart extends React.Component {
                             mode: 'lines+points',
                             marker: {color: 'chartreuse'},
                         }]}
-                    layout={ {width: 800, height: 500, title: `L$VELIFE`} }
+                    layout={ {width: 800, height: 500, title: this.props.ticker} }
                     />
             </div>
         )

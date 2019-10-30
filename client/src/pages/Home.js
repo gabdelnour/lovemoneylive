@@ -46,8 +46,7 @@ render(){
             <img src="/logo.png" alt="The L$VELIFE team Logo"/>
           </div>
           <div>
-            <Stockchart
-              searchInput={this.handleInputChange}/>
+            <Stockchart ticker={companyProfile.symbol || 'AAPL'}/>
           </div>
           <div>
             <h1>Enter your symbol below to get started.</h1>
