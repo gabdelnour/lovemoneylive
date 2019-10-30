@@ -18,7 +18,7 @@ const EnterpriseValue = props => (
                                 {prop}:
                             </td>
                             <td className="companyValues">
-                            {Number(props[prop]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+                                {Number(props[prop]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                             </td>
                         </tr>
                     ))

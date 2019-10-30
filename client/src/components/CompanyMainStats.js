@@ -2,7 +2,7 @@ import React from 'react'
 import '../cssFiles/CompanyMainStats.css'
 
 const CompanyMainStats = props => (
-    <div className="companyMainStats">
+    <>
         <div id="TOP">
             <div id="companyLogo">
                 <img src={props.image} alt="company's logo"/>
@@ -38,7 +38,7 @@ const CompanyMainStats = props => (
                 <h1 id="eps">EPS: {props.eps}</h1>
             </div>
         </div>
-    </div>
+    </>
 )
 
 export default CompanyMainStats

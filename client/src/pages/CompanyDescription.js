@@ -41,7 +41,7 @@ getCompanyProfile = async event => {
             <>
             <div className="container">
                 <div className="innerWrapper">
-                    <div>
+                    <div className="topWrapper">
                         <div className="navBarWrapper">
                             {
                                 <SearchBar
@@ -68,7 +68,7 @@ getCompanyProfile = async event => {
                                 />
                             }
                         </div>
-                        <div className="tableData">
+                        <div className="companyProfileBlock">
                             {
                                 companyProfile.profile &&
                                 <CompanyProfileBlock { ...companyProfile.profile } />
@@ -85,15 +85,7 @@ getCompanyProfile = async event => {
                         <div className="tableData">
                             {
                                 companyProfile.profile &&
-                                <EnterpriseValue 
-                                    date={enterpriseValue.enterpriseValues[0].date}
-                                    stockPrice={enterpriseValue.enterpriseValues[0]["Stock Price"]}
-                                    numberOfShares={enterpriseValue.enterpriseValues[0]["Number of Shares"]}
-                                    marketCapitalization={enterpriseValue.enterpriseValues[0]["Market Capitalization"]}
-                                    cashCashEquivalents={enterpriseValue.enterpriseValues[0]["- Cash & Cash Equivalents"]}
-                                    totalDebt={enterpriseValue.enterpriseValues[0]["+ Total Debt"]}
-                                    enterpriseValue={enterpriseValue.enterpriseValues[0]["Enterprise Value"]}
-                                />
+                                <EnterpriseValue {...enterpriseValue.enterpriseValues[0]}/>
                             }
                         </div>
                         <div className="tableData">
