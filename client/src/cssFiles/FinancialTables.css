@@ -1,11 +1,17 @@
 .tableTitle{
     font-family: 'Noto Sans HK', sans-serif;
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 table{
     border-collapse: collapse;
     width: 100%;
+}
+
+table:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 5px black;
+    transition: 0.3s
 }
 
 .financialKeys{

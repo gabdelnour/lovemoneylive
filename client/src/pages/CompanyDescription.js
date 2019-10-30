@@ -60,6 +60,7 @@ getCompanyProfile = async event => {
                     </div>
                     <div>
                         <div className="companyMainStats">
+                            <hr/>
                             {
                                 companyProfile.profile &&
                                     <CompanyMainStats
@@ -75,8 +76,7 @@ getCompanyProfile = async event => {
                             }
                         </div>
                     </div>
-                    <div className="tableWrapper">
-                        <div>
+                        <div className="tableData">
                             {
                                 companyProfile.profile &&
                                 <IncomeStatement {...financials} />
@@ -87,14 +87,13 @@ getCompanyProfile = async event => {
                                 companyProfile.profile &&
                                 <EnterpriseValue {...enterpriseValue.enterpriseValues[0]}/>
                             }
-                        </div>
-                        <div className="tableData">
-                            {
-                            companyProfile.profile &&
-                            <BalanceSheet {...financialsBS} />
-                            }
-                        </div>      
-                    </div>
+                        </div>    
+                    <div className="tableData">
+                        {
+                        companyProfile.profile &&
+                        <BalanceSheet {...financialsBS} />
+                        }
+                    </div>  
                 </div>
             </div>
         </>

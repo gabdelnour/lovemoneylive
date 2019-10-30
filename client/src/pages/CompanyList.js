@@ -30,7 +30,6 @@ class CompanyList extends React.Component {
     console.log(stockCompanyList)
     return(
         <>
-          <h1>Here are some companies</h1>
           <form onSubmit={this.getCompanyProfile}>
             <input
               type="text"

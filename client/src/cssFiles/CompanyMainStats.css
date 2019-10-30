@@ -1,13 +1,14 @@
 
 .companyMainStats {
-    border: 0px 1px #a0cd9b;
+    box-shadow: 0px 0px 2px #87b582;
     margin-top: 55px;
     display: grid;
     padding-top: 50px;
+    padding-right: 20px;
 }
 
 .companyMainStats:hover{
-    transform: scale(1.07);
+    transform: scale(1.02);
     box-shadow: 0px 0px 5px rgb(91, 130, 94);
     transition: 0.3s
 }
@@ -63,7 +64,6 @@
 #price{
     font-size: 4rem;
     color: black;
-    text-shadow: 0px 0px 4px #5bbc64;
 }
 
 #priceCurrency{
@@ -84,10 +84,13 @@
 }
 
 .companyProfileBlock:hover{
-    transform: scale(1.07);
+    transform: scale(1.02);
     box-shadow: 0px 0px 5px rgb(91, 130, 94);
-    padding: 15px;
     transition: 0.3s
+}
+
+.companyProfileBlock{
+    padding: 10px;
 }
 
 .tableWrapper{

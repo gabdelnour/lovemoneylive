@@ -50,8 +50,8 @@
 }
 
 .company:hover{
-    transform: scale(1.07);
-    box-shadow: 0px 0px 5px black;
+    transform: scale(1.02);
+    box-shadow: 0px 0px 2px black;
     transition: 0.3s
 }
 
@@ -125,4 +125,8 @@ h3{
     display: flex;
     justify-content: center;
     width: 100vw;
+}
+
+.companyProfileBlock{
+    margin-top: 22px;
 }
