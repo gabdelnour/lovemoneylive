@@ -33,6 +33,7 @@
     display: flex;
     padding: 10px;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 #companyLogo{
@@ -48,8 +49,7 @@
 
 #priceData{
     display: flex;
-    width: 20%;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 #price{
@@ -74,6 +74,4 @@
 
 .mktCapEPS{
     padding-left: 30px;
-    width: 45%;
-    display: ellipsis;
 }

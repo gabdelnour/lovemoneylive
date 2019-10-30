@@ -37,11 +37,8 @@ const CompanyMainStats = props => (
                 <h1 id="mktCap">Market Cap: {Number(props.mktCap).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h1>
                 <h1 id="eps">EPS: {props.eps}</h1>
             </div>
-
         </div>
     </div>
-
-
 )
 
 export default CompanyMainStats

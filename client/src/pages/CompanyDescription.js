@@ -59,7 +59,7 @@ getCompanyProfile = async event => {
                         </div>
                     </div>
                     <div>
-                        <div>
+                        <div className="companyMainStats">
                             {
                                 companyProfile.profile &&
                                     <CompanyMainStats
