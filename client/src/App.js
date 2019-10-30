@@ -7,6 +7,7 @@ import CompanyDescription from './pages/CompanyDescription'
 
 
 
+
 const App = () => (
   <BrowserRouter>
     <Navbar/>

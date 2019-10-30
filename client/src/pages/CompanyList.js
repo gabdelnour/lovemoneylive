@@ -13,7 +13,7 @@ class CompanyList extends React.Component {
 
   getCompanyProfile = async (event)  => {
     event.preventDefault()
-    const {data} = await axios.get(`/api/v3/company/stock/list`)
+    const {data} = await axios.get(`/api/stocklist`)
     this.setState({stockCompanyList: data.symbolsList})
   }
 

@@ -1,0 +1,5 @@
+.companyMainStat{
+    display: flex;
+    flex: space-between;
+}
+
