@@ -38,7 +38,8 @@ render(){
   const { companyProfile } = this.state
   console.log(this.state)
   return(
-        <div>
+        <div className="Home-allofit">
+          <link rel="stylesheet" href="https://use.typekit.net/ayl3jve.css"></link>
           <div className="home">
             <h1>Welcome to L$VELIFE</h1>
             <img src="/logo.png" alt="The L$VELIFE team Logo"/>
