@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../cssFiles/FinancialTables.css'
 
 const BalanceSheet = props => (
     <div>

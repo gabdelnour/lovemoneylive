@@ -4,7 +4,7 @@ const IncomeStatement = props => (
     <div>
         <h1 className="tableTitle">Income Statement</h1>
         <hr/>
-        <table className="incomeStatement">
+        <table className="balanceSheet">
             <thead>
                 <tr>
                     <th className="financialKeys">Financial Data</th><th className="companyValues">Company</th>

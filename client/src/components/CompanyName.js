@@ -44,7 +44,7 @@ const CompanyProfileBlock = props => (
                             <h2>Description: </h2>
                         </div>
                         <div className="companyProfileData">
-                            <h2>{props.description}</h2>
+                            <h2>   {props.description}</h2>
                         </div>
                     </div>
                 </div>

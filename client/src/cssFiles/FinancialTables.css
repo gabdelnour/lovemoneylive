@@ -1,0 +1,35 @@
+.tableTitle{
+    font-family: 'Noto Sans HK', sans-serif;
+    font-size: 1rem;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.financialKeys{
+    font-style: 1rem;
+    font-family: 'Noto Sans HK', sans-serif;
+}
+
+.balanceSheet td, .balanceSheet th{
+    border: 1px solid #ddd;
+    padding: 4px;
+}
+
+.balanceSheet tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.balanceSheet th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }

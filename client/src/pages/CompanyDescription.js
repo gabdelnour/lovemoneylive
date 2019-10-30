@@ -40,9 +40,8 @@ getCompanyProfile = async event => {
         return(
             <>
             <div className="container">
-                <div className="leftMargin"></div>
-                <div>
-                    <div className="innerWrapper">
+                <div className="innerWrapper">
+                    <div>
                         <div className="navBarWrapper">
                             {
                                 <SearchBar
@@ -59,56 +58,53 @@ getCompanyProfile = async event => {
                             }
                         </div>
                     </div>
+                    <div>
                         <div>
-                        {
-                            companyProfile.profile &&
+                            {
+                                companyProfile.profile &&
                                     <CompanyMainStats
-                                { ...companyProfile.profile }
-                                eps={ financials.EPS }
-                            />
+                                    { ...companyProfile.profile }
+                                    eps={ financials.EPS }
+                                />
                             }
                         </div>
-                        <div className="tableWrapper">
-                            <div>
-                                <div className="tableData">
-                                    {
-                                        companyProfile.profile &&
-                                        <CompanyProfileBlock { ...companyProfile.profile } />
-                                    }
-                                </div>
-                                <div>
-                                    {
-                                        companyProfile.profile &&
-                                        <IncomeStatement {...financials} />
-                                    }
-                                </div>
-                                <div className="tableData">
-                                    {
-                                        companyProfile.profile &&
-                                        <EnterpriseValue 
-                                            date={enterpriseValue.enterpriseValues[0].date}
-                                            stockPrice={enterpriseValue.enterpriseValues[0]["Stock Price"]}
-                                            numberOfShares={enterpriseValue.enterpriseValues[0]["Number of Shares"]}
-                                            marketCapitalization={enterpriseValue.enterpriseValues[0]["Market Capitalization"]}
-                                            cashCashEquivalents={enterpriseValue.enterpriseValues[0]["- Cash & Cash Equivalents"]}
-                                            totalDebt={enterpriseValue.enterpriseValues[0]["+ Total Debt"]}
-                                            enterpriseValue={enterpriseValue.enterpriseValues[0]["Enterprise Value"]}
-                                        />
-                                    }
-                                </div>
-                                    <div className="tableData">
-                                        {
-                                            companyProfile.profile &&
-                                            <BalanceSheet {...financialsBS} />
-                                        }
-                                    </div>
-                                <div>
-                            </div>        
+                        <div className="tableData">
+                            {
+                                companyProfile.profile &&
+                                <CompanyProfileBlock { ...companyProfile.profile } />
+                            }
                         </div>
+                    </div>
+                    <div className="tableWrapper">
+                        <div>
+                            {
+                                companyProfile.profile &&
+                                <IncomeStatement {...financials} />
+                            }
+                        </div>
+                        <div className="tableData">
+                            {
+                                companyProfile.profile &&
+                                <EnterpriseValue 
+                                    date={enterpriseValue.enterpriseValues[0].date}
+                                    stockPrice={enterpriseValue.enterpriseValues[0]["Stock Price"]}
+                                    numberOfShares={enterpriseValue.enterpriseValues[0]["Number of Shares"]}
+                                    marketCapitalization={enterpriseValue.enterpriseValues[0]["Market Capitalization"]}
+                                    cashCashEquivalents={enterpriseValue.enterpriseValues[0]["- Cash & Cash Equivalents"]}
+                                    totalDebt={enterpriseValue.enterpriseValues[0]["+ Total Debt"]}
+                                    enterpriseValue={enterpriseValue.enterpriseValues[0]["Enterprise Value"]}
+                                />
+                            }
+                        </div>
+                        <div className="tableData">
+                            {
+                            companyProfile.profile &&
+                            <BalanceSheet {...financialsBS} />
+                            }
+                        </div>      
                     </div>
                 </div>
             </div>
-        <div className="rightMargin"></div>
         </>
         )
     }
