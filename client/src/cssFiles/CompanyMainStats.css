@@ -1,0 +1,79 @@
+
+.companyMainStats {
+    box-shadow: 0px 0px 2px #5bbc64;;
+    margin: -10;
+    display: grid;
+    padding-top: 50px;
+}
+#TOP{
+    display: flex;
+    text-align: center;
+    padding: 10px;
+    height: 150px;
+    justify-content: space-between;
+}
+#topRowText{
+    font-family:'Noto Sans HK', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#companyName{
+    font-size: 4rem;
+}
+#exchange{
+    right: 50px;
+    font-size: 1rem;
+    padding-left: 50px;
+    color: gray;
+    display: grid;
+    align-items: center;
+}
+#Bottom{
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+#companyLogo{
+    size: 2rem;
+    display: grid;
+    align-items: center;
+}
+
+#exchange{
+    size: 1rem;
+    margin: 0;
+}
+
+#priceData{
+    display: flex;
+    width: 20%;
+    flex-wrap: wrap;
+}
+
+#price{
+    font-size: 4rem;
+    color: black;
+    text-shadow: 0px 0px 4px #5bbc64;
+    padding: 10px
+}
+
+#priceCurrency{
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
+
+.changes{
+    padding-left: 25px;
+    font: 2rem;
+
+}
+
+.mktCapEPS{
+    padding-left: 30px;
+    width: 45%;
+    display: ellipsis;
+}
