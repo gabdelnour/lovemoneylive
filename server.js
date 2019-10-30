@@ -7,31 +7,6 @@ const path = require("path")
 const app = express()
 const axios = require('axios')
 
-// JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
-// app.get('/api/v3/company/profile/:ticker', (request, response) => {
-//   const {ticker} = request.params
-//   axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${ticker}`)
-//     .then(financialResponse => response.json(financialResponse.data))
-// })
-
-// app.get('/api/v3/financials/balance-sheet-statement/:ticker', (request, response) => {
-//   const {ticker} = request.params
-//   axios.get(`https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/${ticker}`)
-//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
-// })
-
-// app.get('/api/v3/financials/income-statement/:ticker', (request, response) => {
-//   const {ticker} = request.params
-//   axios.get(`https://financialmodelingprep.com/api/v3/financials/income-statement/${ticker}`)
-//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
-// })
-
-// app.get('/api/v3/enterprise-value/:ticker', (request, response) => {
-//   const {ticker} = request.params
-//   axios.get(`https://financialmodelingprep.com/api/v3/enterprise-value/${ticker}`)
-//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
-// })
-
 app.get('/api/companyBundle/:ticker', async (request, response) => {
   const { ticker } = request.params;
   const requests = [
@@ -45,19 +20,21 @@ app.get('/api/companyBundle/:ticker', async (request, response) => {
   response.json({ companyProfile, balanceSheet, incomeStatement, enterpriseValue})
 })
 
-
-
-app.get('/api/stock/list', async (_, response) => {
+app.get('/api/stocklist', async (_, response) => {
   const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/company/stock/list/`)
   response.send(data) 
 })
 
-// app.get('/api/v3/company/stock/list', (_, response) => {
-//   axios.get(`https://financialmodelingprep.com/api/v3/company/stock/list`)
-//     .then(balanceSheetResponse => response.json(balanceSheetResponse.data))
-// })
+app.get('/api/gainers', async (_, response) => {
+  const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/stock/gainers`)
+  response.send(data.mostGainerStock) 
+})
 
-// END DEMO
+
+app.get('/api/losers', async (_, response) => {
+  const { data } = await axios.get(`https://financialmodelingprep.com/api/v3/stock/losers`)
+  response.send(data.mostLoserStock) 
+})
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
