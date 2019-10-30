@@ -2,7 +2,7 @@ import React from 'react'
 import '../cssFiles/FinancialTables.css'
 
 const BalanceSheet = props => (
-    <div>
+    <>
         <h1 className="tableTitle">Balance Sheet</h1>
         <hr/>
         <table className="balanceSheet">
@@ -26,7 +26,7 @@ const BalanceSheet = props => (
                 }
             </tbody>
         </table>
-    </div>
+    </>
 )
 
 export default BalanceSheet

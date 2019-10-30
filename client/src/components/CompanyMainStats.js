@@ -2,7 +2,7 @@ import React from 'react'
 import '../cssFiles/CompanyMainStats.css'
 
 const CompanyMainStats = props => (
-    <div className="companyMainStats">
+    <>
         <div id="TOP">
             <div id="companyLogo">
                 <img src={props.image} alt="company's logo"/>
@@ -37,11 +37,8 @@ const CompanyMainStats = props => (
                 <h1 id="mktCap">Market Cap: {Number(props.mktCap).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h1>
                 <h1 id="eps">EPS: {props.eps}</h1>
             </div>
-
         </div>
-    </div>
-
-
+    </>
 )
 
 export default CompanyMainStats
