@@ -1,7 +1,7 @@
 import React from 'react'
 
 const EnterpriseValue = props => (
-    <div>
+    <>
       <h1 className="tableTitle">Enterprise Value</h1>
          <hr/>
         <table className="balanceSheet">
@@ -25,7 +25,7 @@ const EnterpriseValue = props => (
                 }
             </tbody>
         </table>
-    </div>
+    </>
 )
 
 export default EnterpriseValue

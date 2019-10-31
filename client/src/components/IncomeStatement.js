@@ -1,7 +1,7 @@
 import React from 'react';
 
 const IncomeStatement = props => (
-    <div>
+    <>
         <h1 className="tableTitle">Income Statement</h1>
         <hr/>
         <table className="balanceSheet">
@@ -25,7 +25,7 @@ const IncomeStatement = props => (
                 }
             </tbody>
         </table>
-    </div>
+    </>
 )
 
 export default IncomeStatement
