@@ -76,7 +76,7 @@ getCompanyProfile = async event => {
                         </div>
                     </div>
                     <div className="tableWrapper">
-                        <div>
+                        <div className="tableData">
                             {
                                 companyProfile.profile &&
                                 <IncomeStatement {...financials} />
