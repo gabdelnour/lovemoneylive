@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import '../cssFiles/loader.css'
 
 class CompanyList extends React.Component {
   state = { 
@@ -8,13 +9,16 @@ class CompanyList extends React.Component {
     maxPrice : '',
     stockCompanyList: [],
     companyName: '',
-    filtered: []
+    filtered: [],
+    loading: true,
+    submit: false
   }
 
   getCompanyProfile = async (event)  => {
     event.preventDefault()
+    this.setState({submit: true})
     const {data} = await axios.get(`/api/stocklist`)
-    this.setState({stockCompanyList: data.symbolsList})
+    this.setState({stockCompanyList: data.symbolsList, loading: false})
   }
 
 
@@ -26,19 +30,12 @@ class CompanyList extends React.Component {
 // })
 
   render(){
-    const { stockCompanyList } = this.state
+    const { stockCompanyList, submit, loading } = this.state
     console.log(stockCompanyList)
     return(
         <>
           <h1>Here are some companies</h1>
           <form onSubmit={this.getCompanyProfile}>
-            <input
-              type="text"
-              placeholder="Enter Company Name"
-              autoComplete="off"
-              onChange={ e => this.setState({ compan: e.target.value }) }
-              id="title"
-            />
             <input
               type="number"
               placeholder="Min Price"
@@ -59,6 +56,7 @@ class CompanyList extends React.Component {
               value="Filter by Price"
             />
           </form>
+            {submit && loading === true ? <div className="loader">loading... </div>: <div></div>}
             <div className="companyList">
               {
                 stockCompanyList
