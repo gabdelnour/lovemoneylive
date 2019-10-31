@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Stockchart from '../components/Stockchart'
+import '../cssFiles/Homepage.css'
 
 class Homepage extends React.Component {
   state = {
@@ -41,9 +42,9 @@ render(){
           <link rel="stylesheet" href="https://use.typekit.net/ayl3jve.css"></link>
           <div className="home">
             <h1>Welcome to L$VELIFE</h1>
-            <img src="/logo.png" alt="The L$VELIFE team Logo"/>
+            <img src="image.png" alt="The L$VELIFE team Logo"/>
           </div>
-          <div>
+          <div className="stockchart">
             <Stockchart ticker={companyProfile.symbol || 'AAPL'}/>
           </div>
           <div>

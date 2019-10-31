@@ -1,0 +1,15 @@
+.home {
+    text-align: center;
+    font-size: 40px;
+    color: #4CAF50;
+    font-style: italic;
+}
+
+.stockchart {
+    text-align: center;
+}
+
+:root {
+    background-color: #F2F0F1;
+     
+}

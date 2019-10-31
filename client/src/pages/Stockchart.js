@@ -47,7 +47,7 @@ class Stockchart extends React.Component {
     render() {
         return (
             <div className="home-chart">
-                <h2>Hey, here is your stock market chart for the last 5 Years.</h2>
+                <h2>Hey, here is your stock market chart for the last 5 Years:</h2>
                     <Plot
                     data={[{
                             x: this.state.timeline,
