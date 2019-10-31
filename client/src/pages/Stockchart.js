@@ -1,6 +1,6 @@
 import React from 'react'
 import Plot from 'react-plotly.js' // apparently we have to explicitly reference this including the extension...?
-import '../HomeCSS.css'
+
 
 class Stockchart extends React.Component {
     constructor(props) {

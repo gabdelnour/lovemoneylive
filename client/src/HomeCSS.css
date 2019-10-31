@@ -1,0 +1,35 @@
+
+
+
+.Home-allofit {
+    background-color: #F2F0F1;
+    font-family: source-sans-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal; 
+  }
+  
+  
+  .home-chart {
+    background-color: #5BBC64;
+  }
+  
+  
+  #Home-Table {
+  width: 700px;
+  }
+  
+  
+  #grid-container {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color: #F2F0F1
+  }
+  
+  #div1 { grid-area: 3 / 4 / 4 / 9; }
+  #div2 { grid-area: 2 / 4 / 3 / 9; }
+  #div3 { grid-area: 4 / 2 / 7 / 6; }
+  #div4 { grid-area: 4 / 7 / 7 / 11; }
+  #div5 { grid-area: 1 / 1 / 4 / 3; }

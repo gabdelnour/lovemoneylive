@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import CompanyList from './pages/CompanyList'
 import CompanyDescription from './pages/CompanyDescription'
+import './HomeCSS.css'
+
 
 
 
