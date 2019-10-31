@@ -11,8 +11,6 @@ class Homepage extends React.Component {
     incomeStatement: {},
     enterpriseValue: {},
     companyType: "gainers"
-
-
   }
 
 handleInputChange = event => this.setState({ ticker:event.target.value })
